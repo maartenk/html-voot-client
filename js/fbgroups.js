@@ -1,23 +1,40 @@
 $(document).ready(function () {
 
+/*
     jso_configure({
         "html-voot-client": {
             client_id: apiClientId,
-            authorization: authorizeEndpoint
+            authorization: authorizeEndpoint,
+            redirect_uri: redirectURI
         }
     });
+*/
+
+    jso_configure({
+        "fbgroups": {
+            client_id: apiClientId,
+            authorization: authorizeEndpoint,
+            redirect_uri: redirectURI,
+            presenttoken: presToken
+        }
+    },"debug");
+
+
     jso_ensureTokens({
-        "html-voot-client": apiScope
+        "fbgroups": apiScope
     });
 
 
     function renderGroupList(startIndex) {
+        // todo console.log disablen MaKr
+        console.log("Test MaKr");
         $.oajax({
-            url: apiEndpoint + "/groups/@me" + 
-                "?startIndex=" + startIndex + 
-                "&count=" + maxPageLength + 
-                "&sortBy=title",
-            jso_provider: "html-voot-client",
+            url: apiEndpoint + "/me/groups",
+                //+
+                //"?startIndex=" + startIndex +
+                //"&count=" + maxPageLength +
+                //"&sortBy=title",
+            jso_provider: "fbgroups",
             jso_scopes: apiScope,
             jso_allowia: true,
             dataType: 'json',
@@ -30,18 +47,23 @@ $(document).ready(function () {
                         d.numberList.push({'pageNumber': i, activePage: Math.ceil(startIndex / maxPageLength)});
                     }
                     $("#groupListPagination").html($("#paginationTemplate").render(d));
+
                 }
+                // todo console.log disablen MaKr
+                console.log("MaKr");
+                console.log(d);
             }
         });
     }
 
     function renderMemberList(groupId, startIndex) {
         $.oajax({
-            url: apiEndpoint + "/people/@me/" + groupId + 
-                "?startIndex=" + startIndex + 
+            /*url: apiEndpoint + "/people/@me/" + groupId +
+                "?startIndex=" + startIndex +
                 "&count=" + maxPageLength +
-                "&sortBy=displayName",
-            jso_provider: "html-voot-client",
+                "&sortBy=displayName",*/
+            url: apiEndpoint + "/" + groupId + "/members",
+            jso_provider: "fbgroups",
             jso_scopes: apiScope,
             jso_allowia: true,
             dataType: 'json',
