@@ -1,13 +1,15 @@
 $(document).ready(function () {
 
     jso_configure({
-        "html-voot-client": {
+        "fbgroup": {
             client_id: apiClientId,
-            authorization: authorizeEndpoint
+            authorization: authorizeEndpoint,
+            redirect_uri: redirectURI,
+            presenttoken: presToken
         }
     });
     jso_ensureTokens({
-        "html-voot-client": apiScope
+        "fbgroup": apiScope
     });
 
 
@@ -17,7 +19,7 @@ $(document).ready(function () {
                 "?startIndex=" + startIndex + 
                 "&count=" + maxPageLength + 
                 "&sortBy=title",
-            jso_provider: "html-voot-client",
+            jso_provider: "fbgroup",
             jso_scopes: apiScope,
             jso_allowia: true,
             dataType: 'json',
@@ -41,7 +43,7 @@ $(document).ready(function () {
                 "?startIndex=" + startIndex + 
                 "&count=" + maxPageLength +
                 "&sortBy=displayName",
-            jso_provider: "html-voot-client",
+            jso_provider: "fbgroup",
             jso_scopes: apiScope,
             jso_allowia: true,
             dataType: 'json',
