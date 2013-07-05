@@ -15,7 +15,7 @@ $(document).ready(function () {
             redirect_uri: redirectURI,
             presenttoken: presToken
         }
-    },"debug");
+    });
 
 
     jso_ensureTokens({
@@ -24,8 +24,6 @@ $(document).ready(function () {
 
 
     function renderGroupList(startIndex) {
-        // todo console.log disablen MaKr
-        console.log("Test MaKr");
         $.oajax({
             url: apiEndpoint + "/me/groups",
             //+
@@ -47,9 +45,6 @@ $(document).ready(function () {
                     $("#groupListPagination").html($("#paginationTemplate").render(d));
 
                 }
-                // todo console.log disablen MaKr
-                console.log("MaKr");
-                console.log(d);
             }
         });
     }
