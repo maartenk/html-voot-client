@@ -1,14 +1,12 @@
 $(document).ready(function () {
 
-/*
-    jso_configure({
-        "html-voot-client": {
-            client_id: apiClientId,
-            authorization: authorizeEndpoint,
-            redirect_uri: redirectURI
-        }
-    });
-*/
+//    jso_configure({
+//        "html-voot-client": {
+//            client_id: apiClientId,
+//            authorization: authorizeEndpoint,
+//            redirect_uri: redirectURI
+//        }
+//    });
 
     jso_configure({
         "fbgroups": {
@@ -30,10 +28,10 @@ $(document).ready(function () {
         console.log("Test MaKr");
         $.oajax({
             url: apiEndpoint + "/me/groups",
-                //+
-                //"?startIndex=" + startIndex +
-                //"&count=" + maxPageLength +
-                //"&sortBy=title",
+            //+
+            //"?startIndex=" + startIndex +
+            //"&count=" + maxPageLength +
+            //"&sortBy=title",
             jso_provider: "fbgroups",
             jso_scopes: apiScope,
             jso_allowia: true,
@@ -58,10 +56,10 @@ $(document).ready(function () {
 
     function renderMemberList(groupId, startIndex) {
         $.oajax({
-            /*url: apiEndpoint + "/people/@me/" + groupId +
-                "?startIndex=" + startIndex +
-                "&count=" + maxPageLength +
-                "&sortBy=displayName",*/
+//                url: apiEndpoint + "/people/@me/" + groupId +
+//                "?startIndex=" + startIndex +
+//                "&count=" + maxPageLength +
+//                "&sortBy=displayName",
             url: apiEndpoint + "/" + groupId + "/members",
             jso_provider: "fbgroups",
             jso_scopes: apiScope,
