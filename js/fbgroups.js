@@ -43,7 +43,6 @@ $(document).ready(function () {
                         d.numberList.push({'pageNumber': i, activePage: Math.ceil(startIndex / maxPageLength)});
                     }
                     $("#groupListPagination").html($("#paginationTemplate").render(d));
-
                 }
             }
         });
