@@ -1,13 +1,5 @@
 $(document).ready(function () {
 
-//    jso_configure({
-//        "html-voot-client": {
-//            client_id: apiClientId,
-//            authorization: authorizeEndpoint,
-//            redirect_uri: redirectURI
-//        }
-//    });
-
     jso_configure({
         "fbgroups": {
             client_id: apiClientId,
